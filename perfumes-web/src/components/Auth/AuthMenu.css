@@ -1,0 +1,106 @@
+.auth-hamburger {
+  background: none;
+  border: none;
+  color: var(--color-pearl);
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.6rem;
+}
+.auth-hamburger svg {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.auth-hamburger:hover {
+  color: var(--color-gold);
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.auth-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 20, 10, 0.55);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.3s;
+}
+
+.auth-menu-panel {
+  width: 320px;
+  max-width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #23201a 100%);
+  box-shadow: -8px 0 32px rgba(212, 175, 55, 0.13);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: slideInRight 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.auth-menu-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.auth-menu-close:hover {
+  color: #FFD700;
+}
+
+.auth-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 7rem;
+  align-items: center;
+}
+
+.auth-menu-btn {
+  width: 80%;
+  padding: 1.1rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 30px;
+  border: none;
+  background: var(--color-gold);
+  color: var(--color-black);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.10);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+.auth-menu-btn:hover {
+  background: #FFD700;
+  color: var(--color-black);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
+}
+
+@media (max-width: 600px) {
+  .auth-menu-panel {
+    width: 100vw;
+    border-radius: 0;
+  }
+} 

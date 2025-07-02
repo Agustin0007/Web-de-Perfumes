@@ -1,0 +1,231 @@
+/**
+ * AUTENTICACIÓN - ESTILO MINIMALISTA, PROFESIONAL Y ÚNICO
+ * Inspiración: lujo, elegancia, reflejos, dorado, glassmorphism, animaciones suaves
+ */
+
+:root {
+  --color-gold: #D4AF37;
+  --color-black: #181818;
+  --color-beige: #F5E6D3;
+  --color-pearl: #F8F8F8;
+}
+
+.auth-page-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: url('https://previews.123rf.com/images/wywenka/wywenka2203/wywenka220300028/183691212-black-bottle-of-perfume-on-a-white-background-fragrance-presentation-with-daylight-trending.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.auth-page-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(24, 20, 16, 0.92);
+  z-index: 1;
+}
+
+.auth-page-container {
+  position: relative;
+  z-index: 2;
+  background: #181818;
+  border-radius: 20px;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 390px;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px) saturate(120%);
+  border: 2px solid var(--color-gold);
+  box-sizing: border-box;
+}
+
+.auth-page-container h2 {
+  color: var(--color-gold);
+  font-family: 'Scheherazade New', serif;
+  font-size: 2.1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.auth-form input {
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 8px;
+  background: rgba(245,230,211,0.08);
+  color: var(--color-pearl);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border 0.2s, background 0.2s;
+  outline: none;
+}
+
+.auth-form input:focus {
+  border: 2px solid var(--color-gold);
+  background: rgba(245,230,211,0.16);
+}
+
+.auth-error {
+  color: #ff4d4f;
+  background: rgba(255,77,79,0.10);
+  padding: 0.6rem 1rem;
+  border-radius: 7px;
+  margin-top: 0.7rem;
+  text-align: center;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-success {
+  color: #52c41a;
+  background: rgba(82,196,26,0.10);
+  padding: 0.6rem 1rem;
+  border-radius: 7px;
+  margin-top: 0.7rem;
+  text-align: center;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-nav-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.animated-btn.btn-primary {
+  width: 100%;
+  background: #181818;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.9rem 0;
+  margin-bottom: 1.1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  letter-spacing: 1px;
+}
+.animated-btn.btn-primary:hover {
+  background: var(--color-gold);
+  color: #181818;
+  border: 2px solid var(--color-gold);
+}
+
+.animated-btn.btn-secondary {
+  width: 100%;
+  background: #181818;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 0;
+  margin-bottom: 0.7rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+}
+.animated-btn.btn-secondary:hover {
+  background: var(--color-gold);
+  color: #181818;
+  border: 2px solid var(--color-gold);
+}
+
+.btn-link {
+  background: none !important;
+  border: none !important;
+  color: var(--color-gold);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.3rem 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 auto;
+  display: inline-block;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  min-width: unset;
+  width: auto;
+  transition: none;
+}
+.btn-link:hover {
+  color: var(--color-gold);
+  background: none !important;
+}
+
+.animated-btn {
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.animated-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-black);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.highlight-link {
+  color: var(--color-gold);
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 2px;
+}
+
+@media (max-width: 600px), (max-width: 480px) {
+  .auth-page-container {
+    min-width: 0;
+    width: 98vw;
+    max-width: 98vw;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  .auth-page-bg {
+    background-position: center top;
+  }
+  .auth-page-container h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+  }
+  .auth-form input {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+  }
+  .animated-btn.btn-primary, .animated-btn.btn-secondary {
+    font-size: 1rem;
+    padding: 0.9rem 0;
+    border-radius: 30px;
+  }
+  .btn-link {
+    font-size: 1rem;
+    padding: 0.3rem 1.1rem;
+    border-radius: 8px !important;
+  }
+  .auth-nav-btns {
+    gap: 0.7rem;
+    margin-top: 1.3rem;
+  }
+}
