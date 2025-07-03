@@ -63,13 +63,6 @@ function AppContent() {
     }
   }, [token]);
 
-  useEffect(() => {
-    // Si no es admin, redirigir a home
-    if (!user || user.rol !== 'admin') {
-      navigate('/');
-    }
-  }, [user, navigate]);
-
   // Guardar carrito en localStorage cada vez que cambie
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
