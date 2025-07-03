@@ -63,6 +63,13 @@ function AppContent() {
     }
   }, [token]);
 
+  useEffect(() => {
+    // Si no es admin, redirigir a home
+    if (!user || user.rol !== 'admin') {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
   // Guardar carrito en localStorage cada vez que cambie
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -152,7 +159,7 @@ function AppContent() {
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register onRegister={()=>navigate('/login')} />} />
-        <Route path="/admin-panel" element={<AdminPanel />} />
+        <Route path="/admin-panel" element={<AdminPanel user={user} />} />
         <Route path="*" element={
           <>
             <Cart 
