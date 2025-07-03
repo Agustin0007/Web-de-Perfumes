@@ -7,17 +7,21 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/perfum
 async function createAdmin() {
   await mongoose.connect(MONGODB_URI);
   const email = 'admin@admin.com';
-  const password = 'admin123';
+  const password = '1234';
   const nombre = 'Admin';
   const rol = 'admin';
 
+  const hash = await bcrypt.hash(password, 10);
   const existe = await User.findOne({ email });
   if (existe) {
-    console.log('El usuario admin ya existe.');
+    existe.password = hash;
+    existe.rol = rol;
+    existe.nombre = nombre;
+    await existe.save();
+    console.log('Usuario admin actualizado:', existe);
     await mongoose.disconnect();
     return;
   }
-  const hash = await bcrypt.hash(password, 10);
   const user = new User({ nombre, email, password: hash, rol });
   await user.save();
   console.log('Usuario admin creado:', user);
