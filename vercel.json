@@ -7,4 +7,4 @@
     { "src": "/api/(.*)", "dest": "/perfumes-api/src/index.js" },
     { "src": "/(.*)", "dest": "/perfumes-api/src/index.js" }
   ]
-} 
+}
