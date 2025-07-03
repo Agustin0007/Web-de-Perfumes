@@ -222,6 +222,42 @@
   }
 }
 
+/* --- Mejoras para desktop: panel y tabla más amplios y espaciosos --- */
+@media (min-width: 1000px) {
+  .admin-panel {
+    max-width: 1200px;
+    padding: 2.5rem 3rem;
+    border-radius: 24px;
+  }
+  .admin-list {
+    margin-top: 2.5rem;
+  }
+  .admin-table {
+    font-size: 1.15rem;
+    max-width: 100%;
+    min-width: 900px;
+    box-shadow: 0 4px 24px rgba(212, 175, 55, 0.10);
+    border-radius: 12px;
+    background: #232526;
+  }
+  .admin-table th, .admin-table td {
+    padding: 1.2rem 1.1rem;
+    min-width: 140px;
+    font-size: 1.08rem;
+  }
+  .admin-table th {
+    font-size: 1.15rem;
+  }
+  .admin-table img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 10px;
+  }
+  .admin-actions {
+    gap: 1.2rem;
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
