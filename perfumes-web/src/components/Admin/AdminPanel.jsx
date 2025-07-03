@@ -21,6 +21,7 @@ const AdminPanel = ({ user }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [imgModal, setImgModal] = useState({ open: false, src: '', alt: '' });
 
   useEffect(() => {
     // Si no es admin, redirigir a home
@@ -143,10 +144,18 @@ const AdminPanel = ({ user }) => {
                   <td>{perfume.nombre}</td>
                   <td>{perfume.marca}</td>
                   <td>{perfume.categoria}</td>
-                  <td>{perfume.descripcion}</td>
+                  <td style={{whiteSpace:'pre-line',maxWidth:220}}>{perfume.descripcion}</td>
                   <td>${perfume.precio}</td>
                   <td>{perfume.stock}</td>
-                  <td><img src={perfume.imagen} alt={perfume.nombre} style={{width: '50px', borderRadius: '8px'}} /></td>
+                  <td>
+                    <img 
+                      src={perfume.imagen} 
+                      alt={perfume.nombre} 
+                      onClick={() => setImgModal({ open: true, src: perfume.imagen, alt: perfume.nombre })}
+                      style={{cursor:'pointer'}}
+                    />
+                    <button className="view-img-btn" onClick={e => {e.preventDefault(); setImgModal({ open: true, src: perfume.imagen, alt: perfume.nombre })}}>Ver</button>
+                  </td>
                   <td className="admin-actions">
                     <button className="auth-menu-btn" onClick={() => handleEdit(perfume)}>
                       EDITAR
@@ -159,6 +168,15 @@ const AdminPanel = ({ user }) => {
               ))}
             </tbody>
           </table>
+          {/* Modal para ver imagen grande */}
+          {imgModal.open && (
+            <div className="admin-img-modal-overlay" onClick={() => setImgModal({ open: false, src: '', alt: '' })}>
+              <div className="admin-img-modal" onClick={e => e.stopPropagation()}>
+                <img src={imgModal.src} alt={imgModal.alt} />
+                <button onClick={() => setImgModal({ open: false, src: '', alt: '' })}>Cerrar</button>
+              </div>
+            </div>
+          )}
           {/* Tarjetas en mobile */}
           <div className="admin-cards-list">
             {perfumes.map(perfume => (
