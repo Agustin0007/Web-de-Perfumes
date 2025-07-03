@@ -66,7 +66,7 @@ const Navbar = ({ isCartOpen, setIsCartOpen, totalItems, user, onLogout, rightAc
                 {user.nombre} ({user.rol})
               </div>
               {user.rol === 'admin' && (
-                <button className="auth-menu-btn" style={{marginBottom:'1rem'}} onClick={() => { setIsMenuOpen(false); window.open('/admin-panel', '_blank'); }}>
+                <button className="auth-menu-btn" style={{marginBottom:'1rem'}} onClick={() => { setIsMenuOpen(false); navigate('/admin-panel'); }}>
                   Panel Admin
                 </button>
               )}
