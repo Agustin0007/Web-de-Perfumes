@@ -38,15 +38,18 @@ const Navbar = ({ isCartOpen, setIsCartOpen, totalItems, user, onLogout, rightAc
           <a href="#contact" onClick={() => scrollToSection('contact')}>Contacto</a>
         </div>
         <div className="nav-actions">
-          <button 
-            className="cart-btn" 
-            onClick={() => setIsCartOpen(!isCartOpen)}
-          >
-            <FaShoppingCart />
-            {totalItems > 0 && (
-              <span className="cart-count">{totalItems}</span>
-            )}
-          </button>
+          {/* Mostrar botón del carrito solo si el usuario está logueado */}
+          {user && (
+            <button 
+              className="cart-btn" 
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            >
+              <FaShoppingCart />
+              {totalItems > 0 && (
+                <span className="cart-count">{totalItems}</span>
+              )}
+            </button>
+          )}
           {user && (
             <button className="auth-hamburger" onClick={() => setIsMenuOpen(true)}>
               <FaBars />

@@ -145,7 +145,7 @@ const AdminPanel = ({ user }) => {
                   <td>{perfume.marca}</td>
                   <td>{perfume.categoria}</td>
                   <td style={{whiteSpace:'pre-line',maxWidth:220}}>{perfume.descripcion}</td>
-                  <td>${perfume.precio}</td>
+                  <td>US${perfume.precio}</td>
                   <td>{perfume.stock}</td>
                   <td>
                     <img 
@@ -186,7 +186,7 @@ const AdminPanel = ({ user }) => {
                 <div><b>Marca:</b> {perfume.marca}</div>
                 <div><b>Categoría:</b> {perfume.categoria}</div>
                 <div><b>Descripción:</b> {perfume.descripcion}</div>
-                <div><b>Precio:</b> ${perfume.precio}</div>
+                <div><b>Precio:</b> US${perfume.precio}</div>
                 <div><b>Stock:</b> {perfume.stock}</div>
                 <div className="admin-actions">
                   <button className="auth-menu-btn" onClick={() => handleEdit(perfume)}>

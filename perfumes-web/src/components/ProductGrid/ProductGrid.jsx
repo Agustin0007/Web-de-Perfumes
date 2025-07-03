@@ -96,7 +96,7 @@ const ProductGrid = ({ perfumes, addToCart }) => {
                   <p className="product-description">{product.descripcion}</p>
                   <div className="product-price-container">
                     <div className="product-price">
-                      ${product.precio.toFixed(2)}
+                      US${product.precio.toFixed(2)}
                     </div>
                     <button 
                       className="btn btn-primary mobile-add-cart-btn"

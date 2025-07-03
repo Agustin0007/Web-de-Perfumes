@@ -155,16 +155,19 @@ function AppContent() {
         <Route path="/admin-panel" element={<AdminPanel user={user} />} />
         <Route path="*" element={
           <>
-            <Cart 
-              isOpen={isCartOpen} 
-              setIsOpen={setIsCartOpen}
-              items={cartItems}
-              removeFromCart={removeFromCart}
-              updateQuantity={updateQuantity}
-            />
+            {/* Mostrar carrito solo si el usuario está logueado */}
+            {user && (
+              <Cart 
+                isOpen={isCartOpen} 
+                setIsOpen={setIsCartOpen}
+                items={cartItems}
+                removeFromCart={removeFromCart}
+                updateQuantity={updateQuantity}
+              />
+            )}
             <main>
               <Hero />
-              <ProductGrid perfumes={perfumes} addToCart={addToCart} />
+              <ProductGrid perfumes={perfumes} addToCart={addToCart} user={user} />
               <About />
             </main>
             <Footer />
