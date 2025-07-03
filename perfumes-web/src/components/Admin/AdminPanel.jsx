@@ -123,43 +123,64 @@ const AdminPanel = ({ user }) => {
         {success && <div className="admin-success">{success}</div>}
         <div className="admin-list">
           <h3>Lista de Perfumes</h3>
-          {loading ? <div>Cargando...</div> : (
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Marca</th>
-                  <th>Categoría</th>
-                  <th>Descripción</th>
-                  <th>Precio</th>
-                  <th>Stock</th>
-                  <th>Imagen</th>
-                  <th>Acciones</th>
+          {/* Tabla solo en desktop */}
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Categoría</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {perfumes.map(perfume => (
+                <tr key={perfume._id}>
+                  <td>{perfume.nombre}</td>
+                  <td>{perfume.marca}</td>
+                  <td>{perfume.categoria}</td>
+                  <td>{perfume.descripcion}</td>
+                  <td>${perfume.precio}</td>
+                  <td>{perfume.stock}</td>
+                  <td><img src={perfume.imagen} alt={perfume.nombre} style={{width: '50px', borderRadius: '8px'}} /></td>
+                  <td className="admin-actions">
+                    <button className="auth-menu-btn" onClick={() => handleEdit(perfume)}>
+                      EDITAR
+                    </button>
+                    <button className="auth-menu-btn delete-btn" onClick={() => handleDelete(perfume._id)}>
+                      Eliminar
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {perfumes.map(perfume => (
-                  <tr key={perfume._id}>
-                    <td>{perfume.nombre}</td>
-                    <td>{perfume.marca}</td>
-                    <td>{perfume.categoria}</td>
-                    <td>{perfume.descripcion}</td>
-                    <td>${perfume.precio}</td>
-                    <td>{perfume.stock}</td>
-                    <td><img src={perfume.imagen} alt={perfume.nombre} style={{width: '50px', borderRadius: '8px'}} /></td>
-                    <td className="admin-actions">
-                      <button className="auth-menu-btn" onClick={() => handleEdit(perfume)}>
-                        EDITAR
-                      </button>
-                      <button className="auth-menu-btn delete-btn" onClick={() => handleDelete(perfume._id)}>
-                        Eliminar
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+              ))}
+            </tbody>
+          </table>
+          {/* Tarjetas en mobile */}
+          <div className="admin-cards-list">
+            {perfumes.map(perfume => (
+              <div className="admin-card" key={perfume._id}>
+                <img src={perfume.imagen} alt={perfume.nombre} />
+                <div><b>Nombre:</b> {perfume.nombre}</div>
+                <div><b>Marca:</b> {perfume.marca}</div>
+                <div><b>Categoría:</b> {perfume.categoria}</div>
+                <div><b>Descripción:</b> {perfume.descripcion}</div>
+                <div><b>Precio:</b> ${perfume.precio}</div>
+                <div><b>Stock:</b> {perfume.stock}</div>
+                <div className="admin-actions">
+                  <button className="auth-menu-btn" onClick={() => handleEdit(perfume)}>
+                    EDITAR
+                  </button>
+                  <button className="auth-menu-btn delete-btn" onClick={() => handleDelete(perfume._id)}>
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -14,7 +14,11 @@ import AuthMenu from './components/Auth/AuthMenu'
 import { getAllPerfumes, getMe, deleteUser } from './services/api'
 
 function AppContent() {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(() => {
+    // Cargar carrito desde localStorage al iniciar
+    const stored = localStorage.getItem('cartItems');
+    return stored ? JSON.parse(stored) : [];
+  });
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [totalItems, setTotalItems] = useState(0)
   const [perfumes, setPerfumes] = useState([])
@@ -58,6 +62,11 @@ function AppContent() {
       });
     }
   }, [token]);
+
+  // Guardar carrito en localStorage cada vez que cambie
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product) => {
     setCartItems(prevItems => {
@@ -143,7 +152,7 @@ function AppContent() {
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register onRegister={()=>navigate('/login')} />} />
-        <Route path="/admin-panel" element={<AdminPanel user={user} />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="*" element={
           <>
             <Cart 
