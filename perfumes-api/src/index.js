@@ -27,11 +27,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/perfumes_
 app.use('/api/perfumes', perfumesRoutes);
 app.use('/api/users', usersRoutes);
 
-// Ruta de prueba
-app.get('/', (req, res) => {
-    res.json({ mensaje: 'API de Perfumes funcionando correctamente' });
-});
-
 // Servir archivos estáticos del frontend en producción
 if (process.env.NODE_ENV === 'production' || process.env.SERVE_FRONTEND) {
   const frontendPath = path.resolve(__dirname, '../../perfumes-web/dist');
